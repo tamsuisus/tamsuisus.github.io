@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>淡水膩膩 - 最優秀的投稿系統</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <style>
 
+#banner {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
 form {
   width: 300px;
@@ -27,6 +34,7 @@ select, input[type="text"] {
   box-sizing: border-box;
   border: 2px solid gray;
   border-radius: 4px;
+  height: 45px;
 }
 
 select, input[type="number"] {
@@ -40,21 +48,29 @@ select, input[type="number"] {
 
 input[type="submit"] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #000000;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  height: 45px;
+  font-size: 18px;
 }
 
-input[type="submit"]:hover {
-  background-color: #45a049;
-}
+
 
 
 @media screen and (min-width:500px){
+
+#banner {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 form {
   width: 500px;
   margin: 0 auto;
@@ -63,43 +79,9 @@ form {
   border-radius: 5px;
 }
 
-label {
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-select, input[type="text"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid gray;
-  border-radius: 4px;
-}
-
-select, input[type="number"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid gray;
-  border-radius: 4px;
-}
-
-input[type="submit"] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #111111;
 }
 }
 
@@ -107,17 +89,18 @@ input[type="submit"]:hover {
 
 
 <script type="text/javascript">
+
 function school_change(index){
-  var school1 = index.value;
+  var school1 = index;
   var school2 = document.getElementById("school2");
 
   if (school1 === "e") {
-    school2.innerHTML = "<option>子選項1-1</option><option>子選項1-2</option>";
+    school2.innerHTML = "<option>不願透漏/其他</option><option>淡水國小</option><option>育英國小</option><option>文化國小</option><option>天生國小</option><option>竹圍國小</option><option>鄧公國小</option><option>新興國小</option><option>新市國小</option>";
   } else if (school1 === "j") {
-    school2.innerHTML = "<option>子選項2-1</option><option>子選項2-2</option>";
+    school2.innerHTML = "<option>不願透漏</option><option>正德國中</option><option>淡水國中</option><option>淡江高中國中部</option><option>竹圍高中國中部</option>";
   } else {
-    school2.innerHTML = "<option>其他</option>";
-  }
+    school2.innerHTML = "<option>不願透漏</option><option>淡江高中</option><option>淡水商工</option><option>竹圍高中</option>";
+  };
 
 };
 
@@ -130,26 +113,29 @@ function school_change(index){
 </script>
 </head>
 <body>
-
-<form>
-  <label for="reply">回覆其他文章(非必填)</label>
+<img src="https://ruishengchen.github.io/anonymous_board/banner.png" alt="Banner Image" id="banner"></img>
+<form action="https://script.google.com/macros/s/AKfycbzk76uEb549JBmjukui3RzDcfk0XCWjSlvfBhWk99Yx3MGRs6l3xRTKVmO82zAs1MW8/exec" method="post" onsubmit="window.location.href="http://programminghead.com";">
+  <label for="reply">回覆其他文章(選填)</label>
   <input type="number" id="reply" name="reply" min="1" max="9999" placeholder="#後面的文章ID">
   <br><br>
-  <label for="school1">學校</label>
-  <select id="school1" name="school1" onchange="school_change(this)">
+  <label for="school1" onchange="school_change(this)">學校(選填)</label>
+  <select id="school1" name="school1" onchange="school_change(this.value)">
     <option value="o">不願透漏/高中職(含)以上</option>
     <option value="j">國中</option>
     <option value="e">國小</option>
   </select>
   <select id="school2" name="school2">
-    <option value="o">其他</option>
+    <option>不願透漏</option>
+    <option>淡江高中</option>
+    <option>淡水商工</option>
+    <option>竹圍高中</option>
   </select>
   <br><br>
-  <label for="msg">匿名留言</label>
+  <label for="msg">留言內容</label>
   <input required type="text" id="msg" name="msg" maxlength="100" oninput="displayRemaining(this, 100)">
-  <div id="remaining">100</div>
+  <div id="remaining" style="text-align:right;font-size: 10px;">100</div>
   <br><br>
-  <input type="submit" value="送出">
+  <input type="submit" value="立刻投稿！">
 </form> 
 
 
