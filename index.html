@@ -88,20 +88,6 @@ input[type="submit"]:hover {
 
 <script type="text/javascript">
 
-function school_change(index){
-  var school1 = index;
-  var school2 = document.getElementById("school2");
-
-  if (school1 === "e") {
-    school2.innerHTML = "<option>不願透漏/其他</option><option>淡水國小</option><option>育英國小</option><option>文化國小</option><option>天生國小</option><option>竹圍國小</option><option>鄧公國小</option><option>新興國小</option><option>新市國小</option>";
-  } else if (school1 === "j") {
-    school2.innerHTML = "<option>不願透漏</option><option>正德國中</option><option>淡水國中</option><option>淡江高中國中部</option><option>竹圍高中國中部</option>";
-  } else {
-    school2.innerHTML = "<option>不願透漏</option><option>淡江高中</option><option>淡水商工</option><option>竹圍高中</option>";
-  };
-
-};
-
   function displayRemaining(text, maxLength) {
     var remaining = document.getElementById("remaining");
     remaining.innerHTML = maxLength - text.value.length;
@@ -112,22 +98,9 @@ function school_change(index){
 </head>
 <body>
 <img src="https://tamsuisus.github.io/banner.png" alt="Banner Image" id="banner"></img>
-<form action="https://script.google.com/macros/s/AKfycbzk76uEb549JBmjukui3RzDcfk0XCWjSlvfBhWk99Yx3MGRs6l3xRTKVmO82zAs1MW8/exec" method="post" onsubmit="window.location.href="http://programminghead.com";">
+<form action="https://script.google.com/macros/s/AKfycbyrvTTNGRhQPQGscI15T1YkoLCNwE_Zc80zRnwFzia_nsib5uzPSPFeX8FPlLClZ2OS/exec" method="post">
   <label for="reply">回覆其他文章(選填)</label>
   <input type="number" id="reply" name="reply" min="1" max="9999" placeholder="#後面的文章ID">
-  <br><br>
-  <label for="school1" onchange="school_change(this)">學校(選填)</label>
-  <select id="school1" name="school1" onchange="school_change(this.value)">
-    <option value="o">不願透漏/高中職(含)以上</option>
-    <option value="j">國中</option>
-    <option value="e">國小</option>
-  </select>
-  <select id="school2" name="school2">
-    <option>不願透漏</option>
-    <option>淡江高中</option>
-    <option>淡水商工</option>
-    <option>竹圍高中</option>
-  </select>
   <br><br>
   <label for="msg">留言內容</label>
   <input required type="text" id="msg" name="msg" maxlength="100" oninput="displayRemaining(this, 100)">
